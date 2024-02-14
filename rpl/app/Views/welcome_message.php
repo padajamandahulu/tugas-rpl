@@ -197,7 +197,13 @@
                                 <!-- Slider Item -->
                                 <div class="owl-item">
                                     <div class="course">
-                                        <div class="course_image"><img src="/assets/images/course_1.jpg" alt=""></div>
+                                        <div class="video_container_outer">
+                                            <div class="video_container">
+                                                <!-- Video poster image artist: https://unsplash.com/@annademy -->
+                                                <video id="vid1" class="video-js vjs-default-skin" controls data-setup='{ "poster": "/assets/images/<?= $content['thumbnail'] ?>", "techOrder": ["youtube"], "sources": [{ "type": "video/youtube", "src": "<?= $content['url'] ?>"}], "youtube": { "iv_load_policy": 1 } }'>
+                                                </video>
+                                            </div>
+                                        </div>
                                         <div class="course_body">
                                             <div class="course_header d-flex flex-row align-items-center justify-content-start">
                                                 <div class="course_tag"><a href="#"><?php echo $content['categories'] ?></a></div>
