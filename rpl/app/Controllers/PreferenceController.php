@@ -15,7 +15,7 @@ class PreferenceController extends BaseController
         $session = \Config\Services::session();
         $email = $session->get('email');
 
-        return view('references', ['data' => $data, 'email' => $email]); // Kirim data email ke view
+        return view('references', ['data' => $data, 'email' => $email]);
     }
 
     public function store()
@@ -26,13 +26,16 @@ class PreferenceController extends BaseController
         $preferences = $this->request->getVar('preferences');
         if (!empty($preferences)) {
             $preferenceModel = new PreferenceModel();
-
             foreach ($preferences as $preference) {
-                $preferenceModel->insert(['category' => $preference, 'email' => $email]);
+                $preferenceModel->insert([
+                    'category' => $preference,
+                    'email' => $email,
+                    'is_active' => 1 // Set is_active to 1
+                ]);
             }
-            return redirect()->to('/home');
+            return redirect()->to('home');
         } else {
-            return redirect()->to('/home');
+            return redirect()->to('home');
         }
     }
 }

@@ -8,10 +8,11 @@ use CodeIgniter\Router\RouteCollection;
  */
 $routes->get('/', 'pages::signin');
 $routes->get('/home', 'home::index', ['filter' => 'authGuard']);
-$routes->get('/pages/courses', 'pages::courses', ['filter' => 'authGuard'], ['filter' => 'authGuard']);
-$routes->get('/pages/news', 'pages::news', ['filter' => 'authGuard']);
-$routes->get('/pages/about', 'pages::about', ['filter' => 'authGuard']);
 $routes->get('/pages/courses', 'pages::courses', ['filter' => 'authGuard']);
+$routes->get('/pages/courses_detail', 'pages::courses_detail', ['filter' => 'authGuard']);
+$routes->get('/pages/news', 'pages::news', ['filter' => 'authGuard']);
+$routes->get('/pages/courses', 'pages::courses', ['filter' => 'authGuard']);
+$routes->get('/pages/category', 'pages::category', ['filter' => 'authGuard']);
 $routes->get('/user', 'pages::user_preferences', ['filter' => 'authGuard']);
 $routes->get('/references', 'PreferenceController::index', ['filter' => 'authGuard']);
 /*

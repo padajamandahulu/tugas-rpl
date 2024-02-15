@@ -4,6 +4,8 @@ namespace App\Controllers;
 
 use App\Models\Content;
 use App\Models\UserModel;
+use App\Models\News;
+use App\Models\PreferenceModel;
 
 class Pages extends BaseController
 {
@@ -14,10 +16,6 @@ class Pages extends BaseController
         ];
         return view('pages/home', $data);
     }
-    public function about()
-    {
-        return view('pages/about');
-    }
     public function courses()
     {
         $pager = \Config\Services::pager();
@@ -25,10 +23,36 @@ class Pages extends BaseController
         $data = $biodata->getContent();
         return view('pages/courses', compact('data'));
     }
+    public function courses_detail()
+    {
+        $pager = \Config\Services::pager();
+        $biodata = new Content();
+        $data = $biodata->getContent();
+        return view('pages/courses_detail', compact('data'));
+    }
     public function news()
     {
+        $pager = \Config\Services::pager();
+        $biodata = new News();
+        $data = $biodata->getBlog();
 
-        return view('pages/news');
+        // Query distinct categories
+        $db = \Config\Database::connect();
+        $builder = $db->table('content'); // Replace 'your_table_name' with the actual table name
+        $builder->distinct()->select('categories');
+        $query = $builder->get();
+        $categories = $query->getResultArray();
+
+        $biodata = new Content();
+        $data2 = $biodata->getContent();
+
+        return view('pages/news', compact('data', 'data2', 'categories'));
+    }
+    public function category()
+    {
+        $biodata = new Content();
+        $data = $biodata->getContent();
+        return view('pages/category', compact('data'));
     }
     public function signin()
     {
@@ -39,6 +63,7 @@ class Pages extends BaseController
     {
         $session = session();
         $userModel = new UserModel();
+        $userPreferenceModel = new PreferenceModel(); // Assuming you have a model for user preferences
         $email = $this->request->getVar('email');
         $password = $this->request->getVar('password');
 
@@ -48,14 +73,30 @@ class Pages extends BaseController
 
             $authenticatePassword = password_verify($password, $pass);
             if ($authenticatePassword) {
-                $ses_data = [
-                    'id' => $data['id'],
-                    'name' => $data['name'],
-                    'email' => $data['email'],
-                    'isLoggedIn' => TRUE
-                ];
-                $session->set($ses_data);
-                return redirect()->to('/references');
+                // Check if the user has preferences
+                $hasPreferences = $userPreferenceModel->where('email', $email)->countAllResults();
+
+                if ($hasPreferences > 0) {
+                    // If the user has preferences, redirect to home
+                    $ses_data = [
+                        'id' => $data['id'],
+                        'name' => $data['name'],
+                        'email' => $data['email'],
+                        'isLoggedIn' => TRUE
+                    ];
+                    $session->set($ses_data);
+                    return redirect()->to('/home');
+                } else {
+                    $ses_data = [
+                        'id' => $data['id'],
+                        'name' => $data['name'],
+                        'email' => $data['email'],
+                        'isLoggedIn' => TRUE
+                    ];
+                    $session->set($ses_data);
+                    // If the user does not have preferences, redirect to preferences
+                    return redirect()->to('/references');
+                }
             } else {
                 $session->setFlashdata('msg', 'Password is incorrect.');
                 return redirect()->to('/signin');
@@ -65,6 +106,7 @@ class Pages extends BaseController
             return redirect()->to('/signin');
         }
     }
+
     public function signup()
     {
         helper(['form']);
@@ -113,29 +155,5 @@ class Pages extends BaseController
         $biodata = new Content();
         $data = $biodata->getContent();
         return view('user_preferences', compact('data'));
-    }
-    public function add_selected_categories()
-    {
-        $email = $this->input->post('email'); //here i am getting student id from the checkbox
-
-        for ($i = 0; $i < sizeof($email); $i++) {
-            $data = array('email' => $email[$i]);
-            $this->db->insert('user_preferences', $data);
-        }
-
-        $this->session->set_flashdata('msg', "Students details has been added successfully");
-        $this->session->set_flashdata('msg_class', 'alert-success');
-
-        return redirect('/user');
-    }
-    public function insert_preferences()
-    {
-        $email = $this->input->post('email'); //here i am getting student id from the checkbox
-
-        for ($i = 0; $i < sizeof($email); $i++) {
-            $data = array('email' => $email[$i]);
-            $this->db->insert('user_preferences', $data);
-        }
-        return redirect('/user');
     }
 }

@@ -7,7 +7,7 @@ use CodeIgniter\Model;
 class Content extends Model
 {
     protected $table = 'content';
-
+    
     public function getContent()
     {
         return $this->findAll();

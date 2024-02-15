@@ -20,11 +20,10 @@ use CodeIgniter\Database\BaseUtils;
                         <nav class="main_nav_contaner ml-auto">
                             <ul class="main_nav">
                                 <li><a href="<?= base_url() ?>home">home</a></li>
-                                <li><a href="<?= base_url() ?>pages/about">about us</a></li>
-                                <li><a href="<?= base_url() ?>pages/courses">courses</a></li>
-                                <li><a href="<?= base_url() ?>pages/news">news</a></li>
+                                <li><a href="<?= base_url() ?>pages/courses">Pembelajaran</a></li>
+                                <li><a href="<?= base_url() ?>pages/news">artikel</a></li>
+                                <li><a href="<?= base_url() ?>logout">logout</a></li>
                             </ul>
-                            <div class="search_button"><i class="fa fa-search" aria-hidden="true"></i></div>
 
                             <!-- Hamburger -->
 

@@ -39,12 +39,11 @@
                                 </div>
                                 <nav class="main_nav_contaner ml-auto">
                                     <ul class="main_nav">
-                                        <li><a href="<?= base_url() ?>">home</a></li>
-                                        <li><a href="<?= base_url() ?>pages/about">about us</a></li>
-                                        <li><a href="<?= base_url() ?>pages/courses">courses</a></li>
-                                        <li><a href="<?= base_url() ?>pages/news">news</a></li>
+                                        <li><a href="<?= base_url() ?>home">home</a></li>
+                                        <li><a href="<?= base_url() ?>pages/courses">pembelajaran</a></li>
+                                        <li><a href="<?= base_url() ?>pages/news">artikel</a></li>
+                                        <li><a href="<?= base_url() ?>logout">Logout</a></li>
                                     </ul>
-                                    <div class="search_button"><i class="fa fa-search" aria-hidden="true"></i></div>
 
                                     <!-- Hamburger -->
 
@@ -97,8 +96,7 @@
             </div>
             <nav class="menu_nav">
                 <ul class="menu_mm">
-                    <li class="menu_mm"><a href="<?= base_url() ?>">home</a></li>
-                    <li class="menu_mm"><a href="<?= base_url() ?>pages/about">about us</a></li>
+                    <li class="menu_mm"><a href="<?= base_url() ?>home">home</a></li>
                     <li class="menu_mm"><a href="<?= base_url() ?>pages/courses">courses</a></li>
                     <li class="menu_mm"><a href="<?= base_url() ?>pages/news">news</a></li>
 
@@ -131,7 +129,7 @@
                                 <div class="home_title">News</div>
                                 <div class="breadcrumbs">
                                     <ul>
-                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="<?= base_url() ?>home">Home</a></li>
                                         <li>News</li>
                                     </ul>
                                 </div>
@@ -147,80 +145,25 @@
         <div class="news">
             <div class="container">
                 <div class="row">
-
-                    <!-- News Posts -->
                     <div class="col-lg-8">
                         <div class="news_posts">
-
-                            <!-- News Post -->
-                            <div class="news_post">
-                                <div class="news_post_image"><img src="/assets/images/news_5.jpg" alt=""></div>
-                                <div class="news_post_body">
-                                    <div class="news_post_date"><a href="#">April 02, 2018</a></div>
-                                    <div class="news_post_title"><a href="#">Books, Kindle or Tablet?</a></div>
-                                    <div class="news_post_meta d-flex flex-row align-items-start justify-content-start">
-                                        <div class="news_post_author">By <a href="#">William Smith</a></div>
-                                        <div class="news_post_comments"><a href="#">3 Comments</a></div>
-                                        <div class="news_post_tags">
-                                            <span>in </span>
-                                            <ul>
-                                                <li><a href="#">Social Media</a></li>
-                                            </ul>
+                            <?php
+                            foreach ($data as $blog) :
+                            ?>
+                                <div class="news_post">
+                                    <div class="news_post_image"><img src="/assets/images/<?= $blog['img'] ?>" alt=""></div>
+                                    <div class="news_post_body">
+                                        <div class="news_post_date"><a href="#"><?= $blog['date'] ?></a></div>
+                                        <div class="news_post_title"><a href="#"><?= $blog['tittle'] ?></a></div>
+                                        <div class="news_post_meta d-flex flex-row align-items-start justify-content-start">
                                         </div>
-                                    </div>
-                                    <div class="news_post_text">
-                                        <p>Suspendisse tincidunt magna eget massa hendrerit efficitur. Ut euismod pellentesque imperdiet. Cras laoreet gravida lectus, at viverra lorem venenatis in. Aenean id varius quam. Nullam bibendum interdum dui, ac tempor lorem convallis ut. Maecenas rutrum viverra sapien sed fermentum. Morbi tempor odio eget lacus tempus pulvinar. Praesent vel nisl fermentum, gravida augue.</p>
-                                    </div>
-                                    <div class="news_post_link"><a href="#">Read More</a></div>
-                                </div>
-                            </div>
-
-                            <!-- News Post -->
-                            <div class="news_post">
-                                <div class="news_post_image"><img src="/assets/images/news_6.jpg" alt=""></div>
-                                <div class="news_post_body">
-                                    <div class="news_post_date"><a href="#">April 02, 2018</a></div>
-                                    <div class="news_post_title"><a href="#">Why choose an online course?</a></div>
-                                    <div class="news_post_meta d-flex flex-row align-items-start justify-content-start">
-                                        <div class="news_post_author">By <a href="#">William Smith</a></div>
-                                        <div class="news_post_comments"><a href="#">3 Comments</a></div>
-                                        <div class="news_post_tags">
-                                            <span>in </span>
-                                            <ul>
-                                                <li><a href="#">Social Media</a></li>
-                                            </ul>
+                                        <div class="news_post_text">
+                                            <p><?= $blog['description'] ?></p>
                                         </div>
+                                        <div class="news_post_link"><a href="#">Read More</a></div>
                                     </div>
-                                    <div class="news_post_text">
-                                        <p>Suspendisse tincidunt magna eget massa hendrerit efficitur. Ut euismod pellentesque imperdiet. Cras laoreet gravida lectus, at viverra lorem venenatis in. Aenean id varius quam. Nullam bibendum interdum dui, ac tempor lorem convallis ut. Maecenas rutrum viverra sapien sed fermentum. Morbi tempor odio eget lacus tempus pulvinar. Praesent vel nisl fermentum, gravida augue.</p>
-                                    </div>
-                                    <div class="news_post_link"><a href="#">Read More</a></div>
                                 </div>
-                            </div>
-
-                            <!-- News Post -->
-                            <div class="news_post">
-                                <div class="news_post_image"><img src="/assets/images/news_7.jpg" alt=""></div>
-                                <div class="news_post_body">
-                                    <div class="news_post_date"><a href="#">April 02, 2018</a></div>
-                                    <div class="news_post_title"><a href="#">10 ways to get more productive</a></div>
-                                    <div class="news_post_meta d-flex flex-row align-items-start justify-content-start">
-                                        <div class="news_post_author">By <a href="#">William Smith</a></div>
-                                        <div class="news_post_comments"><a href="#">3 Comments</a></div>
-                                        <div class="news_post_tags">
-                                            <span>in </span>
-                                            <ul>
-                                                <li><a href="#">Social Media</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="news_post_text">
-                                        <p>Suspendisse tincidunt magna eget massa hendrerit efficitur. Ut euismod pellentesque imperdiet. Cras laoreet gravida lectus, at viverra lorem venenatis in. Aenean id varius quam. Nullam bibendum interdum dui, ac tempor lorem convallis ut. Maecenas rutrum viverra sapien sed fermentum. Morbi tempor odio eget lacus tempus pulvinar. Praesent vel nisl fermentum, gravida augue.</p>
-                                    </div>
-                                    <div class="news_post_link"><a href="#">Read More</a></div>
-                                </div>
-                            </div>
-
+                            <?php endforeach; ?>
                         </div>
                     </div>
 
@@ -237,11 +180,12 @@
                                 <div class="sidebar_title">Categories</div>
                                 <div class="sidebar_links">
                                     <ul>
-                                        <li><a href="#">Education</a></li>
-                                        <li><a href="#">Social Media</a></li>
-                                        <li><a href="#">Lifestyle & Events</a></li>
-                                        <li><a href="#">Online Learning</a></li>
-                                        <li><a href="#">Uncategorized</a></li>
+                                        <?php
+                                        foreach ($categories as $content) :
+                                        ?>
+                                            <li><a href="<?= base_url() ?>pages/category?category=<?= urlencode($content['categories']) ?>">
+                                                    <?php echo $content['categories'] ?></a></li>
+                                        <?php endforeach; ?>
                                     </ul>
                                 </div>
                             </div>
@@ -364,11 +308,11 @@
                                     <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
                                 </ul>
                             </div>
-                            <div class="copyright"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                            <div class="copyright">
                                 Copyright &copy;<script>
                                     document.write(new Date().getFullYear());
-                                </script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-                                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></div>
+                                </script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by
+                            </div>
                         </div>
                     </div>
 
@@ -376,11 +320,11 @@
                         <div class="footer_links">
                             <div class="footer_title">Quick menu</div>
                             <ul class="footer_list">
-                                <li><a href="index.html">Home</a></li>
-                                <li><a href="about.html">About us</a></li>
+                                <li><a href="#">Home</a></li>
+                                <li><a href="#">About us</a></li>
                                 <li><a href="#">Testimonials</a></li>
                                 <li><a href="#">Services</a></li>
-                                <li><a href="contact.html">Contact</a></li>
+                                <li><a href="#">Contact</a></li>
                                 <li><a href="#">Facts</a></li>
                             </ul>
                         </div>
@@ -390,9 +334,9 @@
                         <div class="footer_links">
                             <div class="footer_title">Useful Links</div>
                             <ul class="footer_list">
-                                <li><a href="courses.html">Courses</a></li>
+                                <li><a href="#">Courses</a></li>
                                 <li><a href="#">Events</a></li>
-                                <li><a href="news.html">News</a></li>
+                                <li><a href="#">News</a></li>
                                 <li><a href="#">Teachers</a></li>
                                 <li><a href="#">Links</a></li>
                                 <li><a href="#">FAQ</a></li>
@@ -400,13 +344,14 @@
                         </div>
                     </div>
 
+
                     <div class="col-lg-3 footer_col">
                         <div class="footer_contact">
                             <div class="footer_title">Contact Us</div>
                             <div class="footer_contact_info">
                                 <div class="footer_contact_item">
                                     <div class="footer_contact_title">Address:</div>
-                                    <div class="footer_contact_line">1481 Creekside Lane Avila Beach, CA 93424</div>
+                                    <div class="footer_contact_line">Jl.dipatiukur no.138 coblong, kota bandung</div>
                                 </div>
                                 <div class="footer_contact_item">
                                     <div class="footer_contact_title">Phone:</div>
@@ -414,7 +359,7 @@
                                 </div>
                                 <div class="footer_contact_item">
                                     <div class="footer_contact_title">Email:</div>
-                                    <div class="footer_contact_line">yourmail@gmail.com</div>
+                                    <div class="footer_contact_line">ElearnHealth@gmail.com </div>
                                 </div>
                             </div>
                         </div>

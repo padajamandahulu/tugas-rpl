@@ -8,11 +8,11 @@
             <div class="row">
                 <div class="col">
                     <div class="home_content text-center">
-                        <div class="home_title">About us</div>
+                        <div class="home_title">Pembelajaran</div>
                         <div class="breadcrumbs">
                             <ul>
-                                <li><a href="<?= base_url() ?>">Home</a></li>
-                                <li>About us</li>
+                                <li><a href="<?= base_url() ?>home">Home</a></li>
+                                <li>Pembelajaran</li>
                             </ul>
                         </div>
                     </div>
@@ -40,16 +40,12 @@
                 <div class="featured_content">
                     <div class="featured_header d-flex flex-row align-items-center justify-content-start">
                         <div class="featured_tag"><a href="#">Featured</a></div>
-                        <div class="featured_price ml-auto">Price: <span>$35</span></div>
                     </div>
                     <div class="featured_title">
                         <h3><a href="courses.html">Online Literature Course</a></h3>
                     </div>
-                    <div class="featured_text">Maecenas rutrum viverra sapien sed fermentum. Morbi tempor odio eget lacus tempus pulvinar. Donec vehicula efficitur nibh, in pretium nulla interdum lacus vehicula efficitur nibh, in pretiumvehicula efficitur nibh, in pretium tempus non.</div>
+                    <div class="featured_text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque, ratione dolorum. Explicabo illum facilis culpa voluptatem quo reprehenderit necessitatibus, repellat odit, earum, rem libero natus doloribus iure repellendus? Repellat, ipsa.</div>
                     <div class="featured_footer d-flex align-items-center justify-content-start">
-                        <div class="featured_author_image"><img src="/assets/images/featured_author.jpg" alt=""></div>
-                        <div class="featured_author_name">By <a href="#">James S. Morrison</a></div>
-                        <div class="featured_sales ml-auto"><span>352</span> Sales</div>
                     </div>
                 </div>
             </div>
@@ -68,16 +64,14 @@
                         <div class="course_image"><img src="/assets/images/<?= $content['thumbnail'] ?> " alt=""></div>
                         <div class="course_body">
                             <div class="course_header d-flex flex-row align-items-center justify-content-start">
-                                <div class="course_tag"><a href="#"><?php echo $content['categories'] ?></a></div>
+                                <div class="course_tag"><a href="<?= base_url() ?>pages/category?category=<?= urlencode($content['categories']) ?>"><?php echo $content['categories'] ?></a></div>
 
                             </div>
                             <div class="course_title">
-                                <h3><a href="courses.html"><?= $content['tittle'] ?></a></h3>
+                                <h3><a href="<?= base_url() ?>pages/courses_detail?tittle=<?= urlencode($content['tittle']) ?>"><?= $content['tittle'] ?></a></h3>
                             </div>
                             <div class="course_text"><?php echo $content['description'] ?></div>
                             <div class="course_footer d-flex align-items-center justify-content-start">
-                                <div class="course_author_image"><img src="/assets/images/featured_author.jpg" alt="https://unsplash.com/@anthonytran"></div>
-                                <div class="course_author_name">By <a href="#">James S. Morrison</a></div>
                             </div>
                         </div>
                     </div>

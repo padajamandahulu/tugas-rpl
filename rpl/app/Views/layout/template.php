@@ -47,7 +47,7 @@
                             </a>
                         </div>
                         <div class="footer_about_text">
-                            <p>Maecenas rutrum viverra sapien sed fermentum. Morbi tempor odio eget lacus tempus pulvinar.</p>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla eaque corporis expedita molestiae commodi exercitationem illo consequatur deleniti? Sit dolorem temporibus quas non placeat quidem aperiam maxime reprehenderit delectus sapiente?</p>
                         </div>
                         <div class="footer_social">
                             <ul>
@@ -57,11 +57,11 @@
                                 <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
                             </ul>
                         </div>
-                        <div class="copyright"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        <div class="copyright">
                             Copyright &copy;<script>
                                 document.write(new Date().getFullYear());
-                            </script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></div>
+                            </script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by
+                        </div>
                     </div>
                 </div>
 
@@ -69,11 +69,11 @@
                     <div class="footer_links">
                         <div class="footer_title">Quick menu</div>
                         <ul class="footer_list">
-                            <li><a href="index.html">Home</a></li>
-                            <li><a href="about.html">About us</a></li>
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">About us</a></li>
                             <li><a href="#">Testimonials</a></li>
                             <li><a href="#">Services</a></li>
-                            <li><a href="contact.html">Contact</a></li>
+                            <li><a href="#">Contact</a></li>
                             <li><a href="#">Facts</a></li>
                         </ul>
                     </div>
@@ -83,9 +83,9 @@
                     <div class="footer_links">
                         <div class="footer_title">Useful Links</div>
                         <ul class="footer_list">
-                            <li><a href="courses.html">Courses</a></li>
+                            <li><a href="#">Courses</a></li>
                             <li><a href="#">Events</a></li>
-                            <li><a href="news.html">News</a></li>
+                            <li><a href="#">News</a></li>
                             <li><a href="#">Teachers</a></li>
                             <li><a href="#">Links</a></li>
                             <li><a href="#">FAQ</a></li>
@@ -99,7 +99,7 @@
                         <div class="footer_contact_info">
                             <div class="footer_contact_item">
                                 <div class="footer_contact_title">Address:</div>
-                                <div class="footer_contact_line">1481 Creekside Lane Avila Beach, CA 93424</div>
+                                <div class="footer_contact_line">Jl.dipatiukur no.138 coblong, kota bandung</div>
                             </div>
                             <div class="footer_contact_item">
                                 <div class="footer_contact_title">Phone:</div>
@@ -107,7 +107,7 @@
                             </div>
                             <div class="footer_contact_item">
                                 <div class="footer_contact_title">Email:</div>
-                                <div class="footer_contact_line">yourmail@gmail.com</div>
+                                <div class="footer_contact_line">ElearnHealth@gmail.com </div>
                             </div>
                         </div>
                     </div>

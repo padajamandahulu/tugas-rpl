@@ -12,4 +12,5 @@ class PreferenceModel extends Model
     {
         return $this->findAll();
     }
+    
 }

@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <h2>User Preferences</h2>
+    <h2>Anda Tertarik dengan : </h2>
     <?php if (isset($_SESSION['success'])) : ?>
         <div class="alert alert-success">
             <?= $_SESSION['success'] ?>
@@ -26,8 +26,8 @@
         <?php endforeach; ?>
         <!-- Tambahkan input hidden untuk menyimpan email -->
         <input type="hidden" name="email" value="<?= $email ?>">
-        <button type="submit">Save Preferences</button>
-        <a href="<?= base_url() ?>/home" type="button">Menu Utama</a>
+        <button type="submit">Simpan</button>
+        <a href="<?= base_url() ?>home" type="button">Lain kali</a>
     </form>
 </body>
 
