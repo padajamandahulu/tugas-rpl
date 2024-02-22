@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 15 Feb 2024 pada 20.20
+-- Waktu pembuatan: 22 Feb 2024 pada 13.28
 -- Versi server: 10.4.32-MariaDB
 -- Versi PHP: 8.0.30
 
@@ -44,6 +44,20 @@ INSERT INTO `blog` (`id`, `img`, `tittle`, `date`, `categories`, `description`) 
 (1, 'news_5.jpg', 'Books, Kindle or Tablet?', '2024-02-01', 'parenting', ' Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laborum illo suscipit fuga nobis, doloremque cupiditate aspernatur sit explicabo officiis iusto reprehenderit quidem vero eligendi nam earum dignissimos blanditiis quos dolores.\r\n'),
 (2, 'news_5.jpg', 'satu', '2024-02-21', 'web-dev', 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laborum illo suscipit fuga nobis, doloremque cupiditate aspernatur sit explicabo officiis iusto reprehenderit quidem vero eligendi nam earum dignissimos blanditiis quos dolores.'),
 (3, 'news_5.jpg', 'dua', '2024-02-05', 'mental-health', 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laborum illo suscipit fuga nobis, doloremque cupiditate aspernatur sit explicabo officiis iusto reprehenderit quidem vero eligendi nam earum dignissimos blanditiis quos dolores.');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `chat`
+--
+
+CREATE TABLE `chat` (
+  `chat_id` int(11) NOT NULL,
+  `send_to` int(5) NOT NULL,
+  `send_by` int(3) NOT NULL,
+  `message` tinytext NOT NULL,
+  `time` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- --------------------------------------------------------
 
@@ -96,8 +110,7 @@ INSERT INTO `users` (`id`, `name`, `email`, `password`, `created_at`) VALUES
 (3, 'Rio de Janeiro', 'Rio@gmail.com', '$2y$10$Y7hYx8/7Cjga/3rjskZC5eg6azl1AQgriZGHP.87552ewiSv40bpi', '2024-02-13 15:56:37'),
 (4, 'Rio de Janeiro', 'rio1@gmail.com', '$2y$10$7yrB8XJ8lyaSIiqA4tQpb.jJNwwrgVBlwHMpxIhPdoquj06PQqLru', '2024-02-13 16:01:49'),
 (6, 'genta', 'genta@gmail.com', '$2y$10$odkitu0D5FcpNJQmgdvLF.X0IhItUcq6WEYiuauhtUhXf5fumzdiW', '2024-02-14 20:08:30'),
-(7, 'absensi', '1@gmail.com', '$2y$10$7pxqbD5LqYxwMbNwwNlA/eXIjBakE6lt6U0kE9.wQTDCyB2zodyOW', '2024-02-15 12:45:34'),
-(8, 'padil', 'padil@gmail.com', '$2y$10$tWyS.ZiKtFeDZyuaT/quPuaxjDoGADrIiD0obqYJmZ5wRxuW3bSgO', '2024-02-15 19:04:26');
+(7, 'absensi', '1@gmail.com', '$2y$10$7pxqbD5LqYxwMbNwwNlA/eXIjBakE6lt6U0kE9.wQTDCyB2zodyOW', '2024-02-15 12:45:34');
 
 -- --------------------------------------------------------
 
@@ -140,6 +153,14 @@ ALTER TABLE `blog`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indeks untuk tabel `chat`
+--
+ALTER TABLE `chat`
+  ADD PRIMARY KEY (`chat_id`),
+  ADD KEY `sent_to` (`send_to`),
+  ADD KEY `send_by` (`send_by`);
+
+--
 -- Indeks untuk tabel `content`
 --
 ALTER TABLE `content`
@@ -168,6 +189,12 @@ ALTER TABLE `blog`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
+-- AUTO_INCREMENT untuk tabel `chat`
+--
+ALTER TABLE `chat`
+  MODIFY `chat_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+
+--
 -- AUTO_INCREMENT untuk tabel `content`
 --
 ALTER TABLE `content`
@@ -183,7 +210,17 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT untuk tabel `user_preferences`
 --
 ALTER TABLE `user_preferences`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+
+--
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+--
+
+--
+-- Ketidakleluasaan untuk tabel `chat`
+--
+ALTER TABLE `chat`
+  ADD CONSTRAINT `chat_ibfk_1` FOREIGN KEY (`send_by`) REFERENCES `users` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
