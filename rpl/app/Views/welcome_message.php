@@ -140,7 +140,7 @@
                                         <div class="featured_tag"><a href="#">Mental</a></div>
                                     </div>
                                     <div class="featured_title">
-                                        <h3><a href="courses.html">Online Literature Course</a></h3>
+                                        <h3><a href="#">Online Literature Course</a></h3>
                                     </div>
                                     <div class="featured_text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odit error aspernatur repellat magnam, veniam quam ut at laboriosam voluptas accusantium. Dolor, pariatur ipsam voluptas molestias expedita delectus ut quis reprehenderit?.</div>
                                 </div>
@@ -358,7 +358,6 @@
             </div>
         </div>
     </div>
-    <div class="button join_button"><a href="#">register now<div class="button_arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></div></a></div>
 </div>
 
 <?= $this->endSection('content'); ?>
